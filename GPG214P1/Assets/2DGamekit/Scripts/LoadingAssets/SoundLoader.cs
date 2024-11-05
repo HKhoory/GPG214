@@ -32,11 +32,11 @@ public class SoundLoader : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             PlaySound();
         }
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             LoadSound();
         }

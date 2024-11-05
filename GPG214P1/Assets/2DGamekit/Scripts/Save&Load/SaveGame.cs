@@ -23,22 +23,17 @@ public class SaveGame : MonoBehaviour
     [SerializeField] private Damageable _health;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private string fileName;
-    [SerializeField] private string jsonFileName = "PlayerInfo.json";
+    [SerializeField] private string jsonFileName;
     [SerializeField] private string folderPath = Application.streamingAssetsPath;
+    [SerializeField] private string fullPath;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         GetGameObjects();
+        fullPath = Path.Combine(folderPath, jsonFileName);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         
@@ -54,6 +49,10 @@ public class SaveGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             SaveData();
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            LoadData();
         }
     }
 
@@ -81,17 +80,23 @@ public class SaveGame : MonoBehaviour
         allInfo = xPos.ToString() + "-" + yPos.ToString() + "-" + zPos.ToString();
         //allInfo = {xPos}
         //string jsonData = JsonUtility.ToJson();
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, fileName + ".json"), jsonText);
+        File.WriteAllText(fullPath, jsonText);
     }
 
     void LoadData()
     {
         sceneName = SceneManager.GetActiveScene();
-        //if (File.Exists(filePath) {
-        //if (sceneName.buildIndex != allInfo)
-        //if the sceneName isn't the same in the Json file, don't load the thing, else continue
-        //loads the things from the JSON file
-        //overrides the player along with it's values
-        //gets the xPos, yPos, and zPos from the files, along with the other files
+        if (File.Exists(fullPath)) {
+            string jsonData = File.ReadAllText(fullPath);
+            //if (sceneName.buildIndex != allInfo)
+            //if the sceneName isn't the same in the Json file, don't load the thing, else continue
+            //loads the things from the JSON file
+            //overrides the player along with it's values
+            //gets the xPos, yPos, and zPos from the files, along with the other files
+        }
+        else
+        {
+            Debug.Log("JSON File not found");
+        }
     }
 }

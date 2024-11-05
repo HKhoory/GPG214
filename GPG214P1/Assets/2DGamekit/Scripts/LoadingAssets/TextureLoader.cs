@@ -6,31 +6,23 @@ using UnityEngine;
 public class TextureLoader : MonoBehaviour
 {
 
-    [SerializeField] private GameObject spriteTexture;
-    //[SerializeField] private AudioClip audioClip;
+    [SerializeField] private SpriteRenderer spriteTexture;
     [SerializeField] private string textureFolder;
     [SerializeField] private string textureName;
-    //[SerializeField] private string soundFolder;
-    private string folderPath = Application.streamingAssetsPath;
+    [SerializeField] private string folderPath;
 
+    [SerializeField] private Sprite testSprite;
 
-    private void Awake()
-    {
-        if (spriteTexture == null)
-        {
-            spriteTexture = Resources.Load<GameObject>("TestTexture");
-        }
-
-        //if (spriteTexture != null)
-        //{
-        //    Instantiate(spriteTexture);
-        //}
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        spriteTexture.GetComponent<SpriteRenderer>();
+
+        folderPath = Path.Combine(Application.streamingAssetsPath, textureFolder, textureName);
+
+        LoadSprite();
     }
 
     // Update is called once per frame
@@ -39,21 +31,27 @@ public class TextureLoader : MonoBehaviour
         
     }
 
-    private void LoadTexture()
+    private void LoadSprite()
     {
         if (File.Exists(folderPath))
         {
-            byte[] imageBytes = File.ReadAllBytes(folderPath + "/" + textureFolder + "/" + textureName);
+            byte[] imageBytes = File.ReadAllBytes(folderPath);
 
             Texture2D texture = new Texture2D(2, 2);
 
             texture.LoadImage(imageBytes);
 
             spriteTexture.GetComponent<Renderer>().material.mainTexture = texture;
+
+            //testSprite = Sprite.Create(texture, new Rect(0,0, texture.width, texture.height), Vector2.zero);
+
+            spriteTexture.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+
+
         }
         else
         {
-            Debug.Log("Texture file not found at" + folderPath);
+            Debug.Log("Texture file not found");
         }
     }
 }

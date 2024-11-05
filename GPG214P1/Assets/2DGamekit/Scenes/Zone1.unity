@@ -21086,9 +21086,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea51646dded524e4c95c415377fe2678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteTexture: {fileID: 0}
+  spriteTexture: {fileID: 756493904}
   textureFolder: Textures
   textureName: sunnylandfox.png
+  folderPath: C:/Users/User/GPG/GPG214/GPG214P1/Assets/StreamingAssets
+  testSprite: {fileID: 0}
 --- !u!212 &756493904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46953,6 +46955,7 @@ MonoBehaviour:
   fileName: 
   jsonFileName: PlayerInfo.json
   folderPath: C:/Users/User/GPG/GPG214/GPG214P1/Assets/StreamingAssets
+  fullPath: 
 --- !u!4 &1921558039
 Transform:
   m_ObjectHideFlags: 0
@@ -47841,6 +47844,50 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_SortAtRoot: 0
+--- !u!1 &2012312091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012312093}
+  - component: {fileID: 2012312092}
+  m_Layer: 0
+  m_Name: AssetLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2012312092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012312091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63a5d6c1fb1f8549977a4eeedb350d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2012312093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012312091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.87, y: -0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021418632
 GameObject:
   m_ObjectHideFlags: 0
@@ -48537,3 +48584,4 @@ SceneRoots:
   - {fileID: 1921558039}
   - {fileID: 756493905}
   - {fileID: 757741287}
+  - {fileID: 2012312093}
